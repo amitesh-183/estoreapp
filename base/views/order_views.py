@@ -107,7 +107,6 @@ def updateOrderToPaid(request, pk):
     order.isPaid = True
     order.paidAt = datetime.now()
     order.save()
-
     return Response("Order was paid")
 
 

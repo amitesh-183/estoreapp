@@ -24,9 +24,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = "django-insecure-=^0u&!g*pbq9%h^rp9i126w7nk*!z5md7m9fa2*ezk$)x+f1#8"
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ['.vercel.app', '.now.sh''.vercel.app', '.now.sh']
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -54,9 +54,6 @@ REST_FRAMEWORK = {
         'rest_framework_simplejwt.authentication.JWTAuthentication',
     )
 }
-
-STRIPE_SECRET_KEY = 'sk_test_51MDjoWSEOkIJj80VRNHLBWkSgCXZO5CQt2tFxHtq04CvOacx1pMNLrQ4ZqWjr2p5G75c7DSzSdQkeKmYNHFrN7mN00FBC6B5ip'
-
 
 # Django project settings.py
 SIMPLE_JWT = {
@@ -109,7 +106,7 @@ ROOT_URLCONF = "backend.urls"
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
-        "DIRS": [os.path.join(BASE_DIR, "template")],
+        "DIRS": [os.path.join(BASE_DIR, "build")],
         "APP_DIRS": True,
         "OPTIONS": {
             "context_processors": [
@@ -169,10 +166,10 @@ MEDIA_URL = "/images/"
 
 STATICFILES_DIRS = [
     BASE_DIR / "static",
-    BASE_DIR / "template/static"
+    BASE_DIR / "build/static"
 ]
 
-STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles_build", "static")
+STATIC_ROOT = "staticfiles"
 MEDIA_ROOT = "static/images"
 
 # Default primary key field type
